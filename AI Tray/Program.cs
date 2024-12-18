@@ -230,7 +230,7 @@ namespace AITrayApp
             var friendlyItem = new ToolStripMenuItem("Friendly");
             friendlyItem.Click += FriendlyItem_Click;
 
-            var summarizeItem = new ToolStripMenuItem("Sumarize");
+            var summarizeItem = new ToolStripMenuItem("Summarize");
             summarizeItem.Click += SummarizeItem_Click;
 
             var longerItem = new ToolStripMenuItem("Longer");
