@@ -67,6 +67,11 @@ Enabling Clipboard History lets you see and reuse things you’ve recently copie
 
 ## How to Run AITray
 
+### From Windows Explorer
+1. Navigate to the folder where you unzipped AI Tray (e.g. C:\aitray\AI Tray)
+2. Double click on `AI Tray.exe`
+   
+### Via a terminal
 1. Open a terminal (Command Prompt or PowerShell).
 2. Change to the **AI Tray** folder where the `.csproj` file is located. For example:
    ```bash
