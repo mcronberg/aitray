@@ -14,7 +14,18 @@ Watch the video tutorial [here](https://www.youtube.com/watch?v=fZY2syvqx5c) to 
 
 ---
 
-## What You Need to Get Started
+## How to Install and Run AITray
+
+**Download AITray**:
+   - Go to the [AITray release page](https://github.com/garyexplains/aitray/releases/).
+   - Click AI.Tray.zip to download the file
+   - Extract the ZIP file to a folder, such as `C:\aitray`.
+
+**Navigate to the Extracted  Folder**:
+   - Once extracted, navigate to the folder 
+   - Double click on `AI Tray.exe`
+
+## What Developers Need to Get Started
 
 ### 1. .NET 8 SDK
 
@@ -46,7 +57,7 @@ Enabling Clipboard History lets you see and reuse things you’ve recently copie
 
 ---
 
-## How to Install AITray
+## How to Build AITray from Source
 
 1. **Download AITray**:
    - Go to the [AITray GitHub page](https://github.com/garyexplains/aitray).
@@ -60,16 +71,15 @@ Enabling Clipboard History lets you see and reuse things you’ve recently copie
      - Extract the ZIP file to a folder, such as `C:\aitray`.
 
 2. **Navigate to the Project Folder**:
-   - Once extracted, find the folder named **AI Tray** inside the downloaded `aitray` folder.
-   - This folder contains the `.csproj` file (the main project file). It’s important to navigate here before running the app.
+   - Once extracted, find the `aitray` folder.
 
 ---
 
 ## How to Run AITray
-
-### From Windows Explorer
-1. Navigate to the folder where you unzipped AI Tray (e.g. C:\aitray\AI Tray)
-2. Double click on `AI Tray.exe`
+   
+### Via Visual Studio 2022 IDE
+1. Double-click on the file `AI Tray.sln` in the project folder
+2. Build and run the project in Vidual Studio as you would any other Visual Studio project
    
 ### Via a terminal
 1. Open a terminal (Command Prompt or PowerShell).
