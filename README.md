@@ -25,6 +25,18 @@ Watch the video tutorial [here](https://www.youtube.com/watch?v=fZY2syvqx5c) to 
    - Once extracted, navigate to the folder 
    - Double click on `AI Tray.exe`
 
+## Using AITray
+
+1. **Set Up Your API Key**:
+   - On the first run, the app will ask for your Google Gemini API key. Copy your key and paste it into the Settings window. Click **Save**.
+
+2. **Transform Text**:
+   - Copy some text to your clipboard (e.g., highlight text and press `Ctrl + C`).
+   - Right-click the AITray icon in the system tray and choose an option (e.g., Rewrite, Summarize, etc.).
+   - The modified text will automatically replace what’s in your clipboard—ready to paste anywhere!
+
+---
+
 ## What Developers Need to Get Started
 
 ### 1. .NET 8 SDK
@@ -93,18 +105,6 @@ Enabling Clipboard History lets you see and reuse things you’ve recently copie
    ```
 
 This will launch AITray, and you’ll see its icon appear in the system tray (the small icons near the clock in the bottom-right corner of your screen).
-
----
-
-## Using AITray
-
-1. **Set Up Your API Key**:
-   - On the first run, the app will ask for your Google Gemini API key. Copy your key and paste it into the Settings window. Click **Save**.
-
-2. **Transform Text**:
-   - Copy some text to your clipboard (e.g., highlight text and press `Ctrl + C`).
-   - Right-click the AITray icon in the system tray and choose an option (e.g., Rewrite, Summarize, etc.).
-   - The modified text will automatically replace what’s in your clipboard—ready to paste anywhere!
 
 ---
 
