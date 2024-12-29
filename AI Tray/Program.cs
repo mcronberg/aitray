@@ -105,7 +105,7 @@ namespace AITrayApp
             _httpClient.BaseAddress = new Uri("https://generativelanguage.googleapis.com/");
         }
 
-        public string GenerateText(string prompt, string modelName = "gemini-1.5-flash")
+        public string? GenerateText(string? prompt, string modelName = "gemini-1.5-flash")
         {
             if (string.IsNullOrWhiteSpace(prompt))
             {
@@ -139,15 +139,16 @@ namespace AITrayApp
 
                 // Extract the generated text
                 var candidates = jsonResponse?.candidates;
+                const string returnText = "No text generated";
                 if (candidates != null && candidates.Length > 0)
                 {
                     var parts = candidates[0].content?.parts;
                     if (parts != null && parts.Length > 0)
                     {
-                        return parts[0].text;
+                        return parts[0].text ?? returnText;
                     }
                 }
-                return "No text generated";
+                return returnText;
             }
             catch (HttpRequestException ex)
             {
@@ -321,7 +322,7 @@ namespace AITrayApp
 
         }
 
-        private void RewriteItem_Click(object sender, EventArgs e)
+        private void RewriteItem_Click(object? sender, EventArgs e)
         {
             string p = "Transform the text below to enhance its engagement, improve clarity, and optimize readability.";
             
@@ -332,7 +333,7 @@ namespace AITrayApp
 
             }
         }
-        private void SpellItem_Click(object sender, EventArgs e)
+        private void SpellItem_Click(object? sender, EventArgs e)
         {
             string p = "Correct the spelling and grammar in the following text.";
 
@@ -344,7 +345,7 @@ namespace AITrayApp
             }
         }
 
-        private void ProItem_Click(object sender, EventArgs e)
+        private void ProItem_Click(object? sender, EventArgs e)
         {
             string p = "Rewrite the following text to make it sound more professional and formal while keeping the original message intact.";
 
@@ -355,7 +356,7 @@ namespace AITrayApp
 
             }
         }
-        private void FriendlyItem_Click(object sender, EventArgs e)
+        private void FriendlyItem_Click(object? sender, EventArgs e)
         {
             string p = "Rephrase the text below to make it sound more friendly and conversational, while keeping the original message clear and unchanged.";
 
@@ -366,7 +367,7 @@ namespace AITrayApp
 
             }
         }
-        private void SummarizeItem_Click(object sender, EventArgs e)
+        private void SummarizeItem_Click(object? sender, EventArgs e)
         {
             string p = "Summarize the following text.";
 
@@ -377,7 +378,7 @@ namespace AITrayApp
 
             }
         }
-        private void LongerItem_Click(object sender, EventArgs e)
+        private void LongerItem_Click(object? sender, EventArgs e)
         {
             string p = "Expand on the text below to make it about 10% longer, while maintaining the original meaning.";
 
@@ -389,7 +390,7 @@ namespace AITrayApp
             }
         }
 
-        private void ExtendItem_Click(object sender, EventArgs e)
+        private void ExtendItem_Click(object? sender, EventArgs e)
         {
             string p = "Expand on the text below to make it longer, adding relevant details and examples, while maintaining the original meaning.";
 
@@ -401,7 +402,7 @@ namespace AITrayApp
             }
         }
 
-        private void ShortItem_Click(object sender, EventArgs e)
+        private void ShortItem_Click(object? sender, EventArgs e)
         {
             string p = "Rewrite the following text to make it more succinct, without losing its meaning.";
 
@@ -413,7 +414,7 @@ namespace AITrayApp
             }
         }
 
-        private void CustomItem_Click(object sender, EventArgs e)
+        private void CustomItem_Click(object? sender, EventArgs e)
         {
             string p = _customPrompt;
 
@@ -425,13 +426,13 @@ namespace AITrayApp
             }
         }
 
-        private void ExitItem_Click(object sender, EventArgs e)
+        private void ExitItem_Click(object? sender, EventArgs e)
         {
             trayIcon.Visible = false;
             Application.Exit();
         }
 
-        private void SettingsItem_Click(object sender, EventArgs e)
+        private void SettingsItem_Click(object? sender, EventArgs? e)
         {
             using (var settingsForm = new SettingsForm(_apiKey, _customPrompt))
             {
@@ -456,7 +457,7 @@ namespace AITrayApp
             try
             {
                 var geminiApi = new GeminiApi(_apiKey);
-                string response = geminiApi.GenerateText(prompt);
+                string? response = geminiApi.GenerateText(prompt);
 
                 if (response != null)
                 {
@@ -497,7 +498,7 @@ namespace AITrayApp
         public string ApiKey { get; private set; }
         public string CustomPrompt { get; private set; }
 
-        public SettingsForm(string currentApiKey, string currentCustomPrompt)
+        public SettingsForm(string? currentApiKey, string currentCustomPrompt)
         {
             this.Text = "Settings";
             this.StartPosition = FormStartPosition.CenterParent;
@@ -568,9 +569,12 @@ namespace AITrayApp
 
             this.AcceptButton = saveButton;
             this.CancelButton = cancelButton;
+
+            ApiKey = currentApiKey ?? string.Empty;
+            CustomPrompt = currentCustomPrompt ?? string.Empty;
         }
 
-        private void SaveButton_Click(object sender, EventArgs e)
+        private void SaveButton_Click(object? sender, EventArgs e)
         {
             ApiKey = apiKeyTextBox.Text.Trim();
             CustomPrompt = customPromptTextBox.Text.Trim();
